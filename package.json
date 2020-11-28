@@ -1,0 +1,47 @@
+{
+  "name": "@micro-ux/keyboard-shortcuts-manager",
+  "version": "0.0.1",
+  "license": "MIT",
+  "repository": "git@github.com:micro-ux/micro-ux-build.git",
+  "author": "Nischith BM <nischithbm@gmail.com>",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "build": "yarn build:prod",
+    "build:prod": "yarn webpack:prod && yarn build:types && yarn bundlesize",
+    "build:dev": "yarn webpack:dev && yarn build:types",
+    "build:analyze:prod": "WEBPACK_PROFILE=analyze yarn webpack:prod",
+    "build:analyze:dev": "WEBPACK_PROFILE=analyze yarn webpack:dev",
+    "webpack:prod": "NODE_ENV=production webpack",
+    "webpack:dev": "NODE_ENV=development webpack",
+    "build:types": "tsc --emitDeclarationOnly",
+    "analyse:bundlesize": "yarn webpack:prod && yarn bundlesize",
+    "bundlesize": "bundlesize",
+    "dev:pushTags": "git push && git push --tags",
+    "dev:updateSnapshot": "jest --updateSnapshot"
+  },
+  "dependencies": {
+    "keycode": "2.2.0",
+    "lodash": "4.17.15"
+  },
+  "devDependencies": {
+    "@micro-ux/build-typescript": "0.1.4",
+    "@micro-ux/build-webpack": "0.1.4",
+    "@types/jest": "26.0.9",
+    "@types/lodash": "4.14.157",
+    "@types/node": "14.0.27",
+    "@types/react": "16.9.41",
+    "jest": "26.3.0",
+    "jest-junit": "11.1.0"
+  },
+  "engines": {
+    "node": ">=10.13.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "conventionalCommits": true,
+    "registry": "https://registry.npmjs.org/"
+  }
+}
